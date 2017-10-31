@@ -4,14 +4,18 @@ using UnityEngine;
 
 public class Wiggle : MonoBehaviour {
 
-    public float baseSpeed = 5;
+    public float baseSpeed;
     public float lastRotation;
     public float currentRotation;
     public bool Trigger = false;
 
+    Vector3 mousePos;
+    Vector3 currentMousePos;
+
 	// Use this for initialization
-	void Start () {
-		
+	void Start ()
+    {
+        mousePos = Input.mousePosition;
 	}
 	
 	// Update is called once per frame
@@ -19,10 +23,13 @@ public class Wiggle : MonoBehaviour {
         //Grab the current rotation
         currentRotation = transform.localRotation.y;
 
-		//Rotate the cylinder right when the right arrow is pressed
+        currentMousePos = Input.mousePosition;
+
+        baseSpeed = Input.GetAxis("Mouse X")/Time.deltaTime;
+        //Rotate the cylinder right when the right arrow is pressed
 
         //If the button is pressed...
-        if (Input.GetButton("RotateRight"))
+        /*if (Input.GetButton("RotateRight"))
         {
             
             //rotate the cylinder by baseSpeed by Time.deltaTime in the direction of Vector3.up
@@ -33,6 +40,19 @@ public class Wiggle : MonoBehaviour {
 
             transform.Rotate((Vector3.down * baseSpeed) * Time.deltaTime);
             
+        }*/
+
+        if (mousePos.x > currentMousePos.x)
+        {
+
+            //rotate the cylinder by baseSpeed by Time.deltaTime in the direction of Vector3.up
+            transform.Rotate((Vector3.up * baseSpeed) * Time.deltaTime);
+        }
+        if (mousePos.x < currentMousePos.x)
+        {
+
+            transform.Rotate((Vector3.down * baseSpeed) * Time.deltaTime);
+
         }
 
         //Every update needs to check if it's below 0 or above 0
@@ -46,15 +66,15 @@ public class Wiggle : MonoBehaviour {
         // mathf.abs
 
 
-       //Debug.Log(currentRotation + " = Current Rotation");
-       //Debug.Log(lastRotation + " = Last Rotation");
-       //
+        //Debug.Log(currentRotation + " = Current Rotation");
+        //Debug.Log(lastRotation + " = Last Rotation");
+        //
         if ((Mathf.Abs(currentRotation - lastRotation) > 0))
         {
 
             // we've travelled far enough to trigger growth.
             // wanting it to grow in size when triggered.
-            transform.localScale += new Vector3(0, 0.1f, 0);
+            transform.localScale += new Vector3(0, 0.1f, 0) * 0.5f;
             
         }
         
