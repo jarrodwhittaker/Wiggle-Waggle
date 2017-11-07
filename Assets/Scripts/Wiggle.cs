@@ -1,8 +1,11 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
-public class Wiggle : MonoBehaviour {
+public class Wiggle : MonoBehaviour
+{
+
 
     public float baseSpeed;
     public float lastRotation;
@@ -12,10 +15,12 @@ public class Wiggle : MonoBehaviour {
     Vector3 mousePos;
     Vector3 currentMousePos;
 
-	// Use this for initialization
-	void Start ()
+
+    // Use this for initialization
+    void Start ()
     {
         mousePos = Input.mousePosition;
+
 	}
 	
 	// Update is called once per frame
@@ -41,19 +46,22 @@ public class Wiggle : MonoBehaviour {
             transform.Rotate((Vector3.down * baseSpeed) * Time.deltaTime);
             
         }*/
-
-        if (mousePos.x > currentMousePos.x)
+        if (GameController.Instance.isStart != true)
         {
+            if (mousePos.x > currentMousePos.x)
+            {
 
-            //rotate the cylinder by baseSpeed by Time.deltaTime in the direction of Vector3.up
-            transform.Rotate((Vector3.up * baseSpeed) * Time.deltaTime);
+                //rotate the cylinder by baseSpeed by Time.deltaTime in the direction of Vector3.up
+                transform.Rotate((Vector3.up * baseSpeed) * Time.deltaTime);
+            }
+            if (mousePos.x < currentMousePos.x)
+            {
+
+                transform.Rotate((Vector3.down * baseSpeed) * Time.deltaTime);
+
+            }
         }
-        if (mousePos.x < currentMousePos.x)
-        {
 
-            transform.Rotate((Vector3.down * baseSpeed) * Time.deltaTime);
-
-        }
 
         //Every update needs to check if it's below 0 or above 0
         //Needs to be compared
