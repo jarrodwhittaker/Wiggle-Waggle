@@ -10,6 +10,7 @@ public class GameController : MonoBehaviour {
     public float timeLeft;
     public Text gameTimer;
     public GameObject gameOver;
+    public Text winText;
     public float startTime;
     public Text firstTimer;
 
@@ -26,8 +27,8 @@ public class GameController : MonoBehaviour {
     void Start () {
        // firstTimer.SetActive(true);
         firstTimer.enabled = true;
-         gameOver.SetActive(false);
-        
+        gameOver.SetActive(false);
+        winText.enabled = false;
         //gameTimer.SetActive(false);
         gameTimer.enabled = false;
         timeLeft = 10.0f;
@@ -77,7 +78,9 @@ public class GameController : MonoBehaviour {
         {
             gameTimer.enabled = false;
             gameOver.SetActive(true);
+            winText.enabled = true;
             Time.timeScale = 0;
+            winText.text = "Finished!";
         }
 	}
 }

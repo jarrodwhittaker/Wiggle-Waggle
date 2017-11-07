@@ -274,7 +274,6 @@ RectTransform:
   m_Children:
   - {fileID: 1915211604}
   - {fileID: 1471191068}
-  - {fileID: 661792910}
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -369,8 +368,8 @@ RectTransform:
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_Children:
   - {fileID: 1867300944}
-  m_Father: {fileID: 173487005}
-  m_RootOrder: 2
+  m_Father: {fileID: 0}
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -697,6 +696,7 @@ MonoBehaviour:
   timeLeft: 10
   gameTimer: {fileID: 1471191069}
   gameOver: {fileID: 661792906}
+  winText: {fileID: 1867300945}
   startTime: 4
   firstTimer: {fileID: 1915211605}
   isStart: 0
@@ -780,7 +780,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: New Text
+  m_Text: 
 --- !u!222 &1867300946
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -854,7 +854,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: New Text
+  m_Text: 
 --- !u!222 &1915211606
 CanvasRenderer:
   m_ObjectHideFlags: 0
