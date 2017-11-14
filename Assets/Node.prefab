@@ -24,7 +24,6 @@ GameObject:
   - component: {fileID: 23816755020325818}
   - component: {fileID: 54030957394311888}
   - component: {fileID: 59535027838678342}
-  - component: {fileID: 114417482613598976}
   m_Layer: 0
   m_Name: Node
   m_TagString: Node
@@ -133,22 +132,6 @@ HingeJoint:
   m_EnablePreprocessing: 1
   m_MassScale: 1
   m_ConnectedMassScale: 1
---- !u!114 &114417482613598976
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1777316397431906}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e268838abb7bfb4449afea6a23ccc5eb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  distance: 0
-  nodePrefab: {fileID: 0}
-  currentNode: {fileID: 0}
-  lastNode: {fileID: 0}
-  nodeMesh: {fileID: 0}
 --- !u!135 &135639442250340158
 SphereCollider:
   m_ObjectHideFlags: 1
