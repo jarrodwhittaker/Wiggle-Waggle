@@ -81,7 +81,7 @@ public class GameController : MonoBehaviour {
             gameOver.SetActive(true);
             winText.enabled = true;
             Time.timeScale = 0;
-            winText.text = "Finished!";
+            winText.text = "Player Wins!";
         }
 	}
 }
