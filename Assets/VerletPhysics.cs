@@ -108,9 +108,9 @@ public class VerletPhysics : MonoBehaviour {
 
                 currentNode.lastPosition = currentNode.currentPosition;
                 currentNode.currentPosition += (currentVelocity + ropeAcceleration * (Time.fixedDeltaTime * Time.fixedDeltaTime));
-
-                rope.SetPosition(i, nodes[i - 1].currentPosition);
             }
+            rope.SetPosition(i, nodes[i].currentPosition);
+            
         }
     }
 }

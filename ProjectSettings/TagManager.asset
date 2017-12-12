@@ -8,6 +8,8 @@ TagManager:
   - MenuItem
   - Player1
   - Player1start
+  - Player2
+  - Player2start
   layers:
   - Default
   - TransparentFX
