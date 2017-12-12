@@ -36,7 +36,7 @@ public class VerletPhysics : MonoBehaviour {
             nodes[i].lastPosition = transform.position + Vector3.down /** numberOfNodes*/ * i;
         }
 
-        rope = GetComponent<LineRenderer>();
+        rope = this.gameObject.GetComponent<LineRenderer>();
 
         nodes[0].isFrozen = true;
 

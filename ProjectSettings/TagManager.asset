@@ -5,6 +5,9 @@ TagManager:
   serializedVersion: 2
   tags:
   - Node
+  - MenuItem
+  - Player1
+  - Player1start
   layers:
   - Default
   - TransparentFX
