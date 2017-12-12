@@ -30,7 +30,7 @@ public class Wiggle : MonoBehaviour
 
         currentMousePos = Input.mousePosition;
 
-        baseSpeed = Input.GetAxis("Mouse X")/Time.deltaTime;
+        baseSpeed = Input.GetAxis("Mouse X") / Time.deltaTime + arduino.gx1 * 0.01f;
         //Rotate the cylinder right when the right arrow is pressed
 
         //If the button is pressed...
@@ -48,13 +48,13 @@ public class Wiggle : MonoBehaviour
         }*/
         if (GameController.Instance.isStart != true)
         {
-            if (mousePos.x > currentMousePos.x)
+            if (mousePos.x > currentMousePos.x || arduino.gx1 > 100)
             {
 
                 //rotate the cylinder by baseSpeed by Time.deltaTime in the direction of Vector3.up
                 transform.Rotate((Vector3.up * baseSpeed) * Time.deltaTime);
             }
-            if (mousePos.x < currentMousePos.x)
+            if (mousePos.x < currentMousePos.x || arduino.gx1 < -100)
             {
 
                 transform.Rotate((Vector3.down * baseSpeed) * Time.deltaTime);
