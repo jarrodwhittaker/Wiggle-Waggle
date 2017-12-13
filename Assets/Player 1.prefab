@@ -21,7 +21,7 @@ GameObject:
   - component: {fileID: 4262432818475122}
   - component: {fileID: 120496090318322984}
   - component: {fileID: 114187682805937616}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Player 1
   m_TagString: Player1
   m_Icon: {fileID: 0}
@@ -53,6 +53,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   numberOfNodes: 6
+  nodes: []
   dampen: 1
   distance: 1
   rope: {fileID: 0}
