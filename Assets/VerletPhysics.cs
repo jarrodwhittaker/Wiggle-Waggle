@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class VerletPhysics : MonoBehaviour {
 
+    [System.Serializable]
     public class Node
     {
         public Vector3 currentPosition;

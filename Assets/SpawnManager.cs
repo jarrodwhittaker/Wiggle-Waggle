@@ -12,7 +12,7 @@ public class SpawnManager : MonoBehaviour {
     public GameObject player2Start;
 
     // Use this for initialization
-    void Start ()
+    void Awake()
     {
        // player1 = GameObject.FindGameObjectWithTag("Player1");
 
