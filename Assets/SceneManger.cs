@@ -49,12 +49,12 @@ public class SceneManger : MonoBehaviour {
     public void WiggleRace()
     {
         SceneManager.UnloadSceneAsync("MainMenu");
-        SceneManager.LoadSceneAsync("VerletTest", LoadSceneMode.Additive);
+        SceneManager.LoadScene("VerletTest", LoadSceneMode.Additive);
     }
 
     public void FireStarter()
     {
         SceneManager.UnloadSceneAsync("MainMenu");
-        SceneManager.LoadSceneAsync("FireStarter", LoadSceneMode.Additive);
+        SceneManager.LoadScene("FireStarter", LoadSceneMode.Additive);
     }
 }
