@@ -6,51 +6,42 @@ using UnityEngine.SceneManagement;
 
 public class SceneManger : MonoBehaviour {
 
-    public static SceneManger Instance;
-
-    private int indexId;
-    private string levelToLoadName = "";
-    public List<string> levelNames = new List<string>();
-
-
-    //private AssetBundle myLoadedAssetBundles;
-    //private string[] scenePaths;
-
-
-
-    void Awake()
-    {
-        if (Instance == null)
-        {
-            Instance = this;
-        }
-
-        else if (Instance != this)
-        {
-            Destroy(gameObject);
-        }
-    }
+    public bool isPause;
     // Use this for initialization
     void Start ()
     {
-        SceneManager.LoadScene("MainMenu", LoadSceneMode.Additive);
-        //myLoadedAssetBundles = AssetBundle.LoadFromFile("Assets/Scenes/MiniGames");
-        //scenePaths = myLoadedAssetBundles.GetAllScenePaths();
-
+        isPause = false;
 	}
 	
 	// Update is called once per frame
-	void Update () {
-		
-	}
-
-    public void RandomGame()
+	void Update ()
     {
-        //SceneManager.LoadScene(scenePaths[Random.Range(0, scenePaths.Length)], LoadSceneMode.Additive);
-        SceneManager.UnloadSceneAsync("MainMenu");
-        indexId = Random.Range(0, levelNames.Count);
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            IsToggle();
+        }
+    }
 
-        levelToLoadName = levelNames[indexId];
-        SceneManager.LoadScene(levelToLoadName, LoadSceneMode.Additive);
+    public void Restart()
+    {
+        Scene scene = SceneManager.GetActiveScene();
+        SceneManager.LoadScene(scene.name, LoadSceneMode.Single);
+    }
+
+    public void IsToggle()
+    {
+        if (isPause)
+        {
+            SceneManager.UnloadSceneAsync("PauseMenu");
+            Time.timeScale = 1;
+
+            isPause = false;
+        }
+        else if (!isPause)
+        {
+            SceneManager.LoadSceneAsync("PauseMenu", LoadSceneMode.Additive);
+            Time.timeScale = 0;
+            isPause = true;
+        }
     }
 }
