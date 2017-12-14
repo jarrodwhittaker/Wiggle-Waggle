@@ -8,13 +8,14 @@ public class SceneManger : MonoBehaviour {
 
     public bool isPause;
     // Use this for initialization
-    void Start ()
+    void Start()
     {
         isPause = false;
-	}
-	
-	// Update is called once per frame
-	void Update ()
+        SceneManager.LoadSceneAsync("MainMenu", LoadSceneMode.Additive);
+    }
+
+    // Update is called once per frame
+    void Update()
     {
         if (Input.GetKeyDown(KeyCode.Space))
         {
@@ -43,5 +44,17 @@ public class SceneManger : MonoBehaviour {
             Time.timeScale = 0;
             isPause = true;
         }
+    }
+
+    public void WiggleRace()
+    {
+        SceneManager.UnloadSceneAsync("MainMenu");
+        SceneManager.LoadSceneAsync("VerletTest", LoadSceneMode.Additive);
+    }
+
+    public void FireStarter()
+    {
+        SceneManager.UnloadSceneAsync("MainMenu");
+        SceneManager.LoadSceneAsync("FireStarter", LoadSceneMode.Additive);
     }
 }
