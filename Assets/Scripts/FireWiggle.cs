@@ -27,10 +27,19 @@ public class FireWiggle : MonoBehaviour {
 
         currentMousePos = Input.mousePosition;
 
-        baseSpeed = Input.GetAxis("Mouse X") / Time.deltaTime + arduino.gx1 * 0.01f;
-
+        float t = Time.deltaTime;
+        if (t > 0)
+        {
+            baseSpeed = Input.GetAxis("Mouse X") / Time.deltaTime + arduino.gx1 * 0.01f;
+        }
+        else
+        {
+            baseSpeed = 0;
+        }
         if (GameController.Instance.isStart != true)
         {
+
+         
             if (mousePos.x > currentMousePos.x || arduino.gx1 > 100)
             {
 
