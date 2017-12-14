@@ -15,5 +15,14 @@ EditorBuildSettings:
     path: Assets/Scenes/Test.unity
     guid: 44dbdacef3a7a244d9c7bc3719ada541
   - enabled: 1
-    path: Assets/Scenes/FireStarter.unity
+    path: Assets/Scenes/MiniGames/FireStarter.unity
     guid: f013d6ecf44a9df43a4d1ebfc5d54696
+  - enabled: 1
+    path: Assets/Scenes/MiniGames/KellemTest.unity
+    guid: 5a898e3861abcbe4ba6c5d4a719e887d
+  - enabled: 1
+    path: Assets/Scenes/MiniGames/VerletTest.unity
+    guid: a8b57a57acc9a8a4a8436d278f135227
+  - enabled: 1
+    path: Assets/Scenes/MainScene.unity
+    guid: 8f8da09defe34fc4ba7cd61fc4c1d5b8
