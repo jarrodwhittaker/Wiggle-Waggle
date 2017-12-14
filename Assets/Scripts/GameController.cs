@@ -81,7 +81,23 @@ public class GameController : MonoBehaviour {
             gameOver.SetActive(true);
             winText.enabled = true;
             Time.timeScale = 0;
-            winText.text = "Player Wins!";
+            int n1 = SpawnManager.physics1.nodes.Count;
+            int n2 = SpawnManager.physics2.nodes.Count;
+            if(n1>n2)
+            {
+                //player 1 won
+                winText.text = "Player 1 Wins by " + (n1 - n2) + " Playdoughs";
+            }
+            else if(n1<n2)
+            {
+                //player 2 won
+                winText.text = "Player 2 Wins by " + (n2 - n1) + " Playdoughs";
+            }
+            else
+            {
+                winText.text = "Tie with length "+n1;
+            }
+            
         }
 	}
 }
