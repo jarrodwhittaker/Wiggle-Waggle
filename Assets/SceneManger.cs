@@ -6,51 +6,55 @@ using UnityEngine.SceneManagement;
 
 public class SceneManger : MonoBehaviour {
 
-    public static SceneManger Instance;
-
-    private int indexId;
-    private string levelToLoadName = "";
-    public List<string> levelNames = new List<string>();
-
-
-    //private AssetBundle myLoadedAssetBundles;
-    //private string[] scenePaths;
-
-
-
-    void Awake()
+    public bool isPause;
+    // Use this for initialization
+    void Start()
     {
-        if (Instance == null)
-        {
-            Instance = this;
-        }
+        isPause = false;
+        SceneManager.LoadSceneAsync("MainMenu", LoadSceneMode.Additive);
+    }
 
-        else if (Instance != this)
+    // Update is called once per frame
+    void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Space))
         {
-            Destroy(gameObject);
+            IsToggle();
         }
     }
-    // Use this for initialization
-    void Start ()
-    {
-        SceneManager.LoadScene("MainMenu", LoadSceneMode.Additive);
-        //myLoadedAssetBundles = AssetBundle.LoadFromFile("Assets/Scenes/MiniGames");
-        //scenePaths = myLoadedAssetBundles.GetAllScenePaths();
 
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
-
-    public void RandomGame()
+    public void Restart()
     {
-        //SceneManager.LoadScene(scenePaths[Random.Range(0, scenePaths.Length)], LoadSceneMode.Additive);
+        Scene scene = SceneManager.GetActiveScene();
+        SceneManager.LoadScene(scene.name, LoadSceneMode.Single);
+    }
+
+    public void IsToggle()
+    {
+        if (isPause)
+        {
+            SceneManager.UnloadSceneAsync("PauseMenu");
+            Time.timeScale = 1;
+
+            isPause = false;
+        }
+        else if (!isPause)
+        {
+            SceneManager.LoadSceneAsync("PauseMenu", LoadSceneMode.Additive);
+            Time.timeScale = 0;
+            isPause = true;
+        }
+    }
+
+    public void WiggleRace()
+    {
         SceneManager.UnloadSceneAsync("MainMenu");
-        indexId = Random.Range(0, levelNames.Count);
+        SceneManager.LoadSceneAsync("VerletTest", LoadSceneMode.Additive);
+    }
 
-        levelToLoadName = levelNames[indexId];
-        SceneManager.LoadScene(levelToLoadName, LoadSceneMode.Additive);
+    public void FireStarter()
+    {
+        SceneManager.UnloadSceneAsync("MainMenu");
+        SceneManager.LoadSceneAsync("FireStarter", LoadSceneMode.Additive);
     }
 }
