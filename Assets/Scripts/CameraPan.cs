@@ -33,6 +33,6 @@ public class CameraPan : MonoBehaviour
         Vector3 midPoint = (midPlayers - midNodes) * 0.5f + midNodes;
 
         Debug.Log(midPlayers + " | " + midNodes + " | " + midPoint);
-        Camera.main.transform.position = new Vector3(midPoint.x, midPoint.y, -player1Script.nodes.Count - 3);
+        Camera.main.transform.position = new Vector3(midNodes.x, midNodes.y, -player1Script.nodes.Count - 3);
     }
 }
