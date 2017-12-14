@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class FireWiggle : MonoBehaviour {
 
@@ -26,26 +27,26 @@ public class FireWiggle : MonoBehaviour {
 
         currentMousePos = Input.mousePosition;
 
-        baseSpeed = Input.GetAxis("Mouse X") / Time.deltaTime;
+        baseSpeed = Input.GetAxis("Mouse X") / Time.deltaTime + arduino.gx1 * 0.01f;
 
         if (GameController.Instance.isStart != true)
         {
-            if (mousePos.x > currentMousePos.x)
+            if (mousePos.x > currentMousePos.x || arduino.gx1 > 100)
             {
 
                 //rotate the cylinder by baseSpeed by Time.deltaTime in the direction of Vector3.up
                 transform.Rotate((Vector3.up * baseSpeed) * Time.deltaTime);
             }
-            if (mousePos.x < currentMousePos.x)
+            if (mousePos.x < currentMousePos.x || arduino.gx1 < -100)
             {
 
                 transform.Rotate((Vector3.down * baseSpeed) * Time.deltaTime);
 
             }
         }
-        if(baseSpeed >= topSpeed)
+        if (baseSpeed >= topSpeed)
         {
-
+            
         }
 
     }
